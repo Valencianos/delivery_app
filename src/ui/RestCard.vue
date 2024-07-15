@@ -1,10 +1,14 @@
 <template>
-  <router-link :to="`/rest?id=${props.id}`" href="goods.html" class="card">
-    <img :src="props.img" :alt="props.title" class="card__img" />
+  <router-link :to="`/goods?id=${rest.id}`" class="card">
+    <img
+      :src="`http://localhost:5173/src/assets/img/rests/${rest.img}`"
+      :alt="rest.title"
+      class="card__img"
+    />
     <div class="card__box">
       <div class="card__title">
-        <h3 class="card__text">{{ props.title }}</h3>
-        <p class="card__eta">{{ props.eta }} мин</p>
+        <h3 class="card__text">{{ rest.title }}</h3>
+        <p class="card__eta">{{ rest.time }} мин</p>
       </div>
       <div class="card__info">
         <p class="card__rating">
@@ -20,10 +24,10 @@
               fill="#FFC107"
             />
           </svg>
-          <span class="card__rating_mark">{{ props.rating }}</span>
+          <span class="card__rating_mark">{{ rest.rating }}</span>
         </p>
         <div class="card__sum">
-          <p class="card__price">От {{ props.bill }} ₽</p>
+          <p class="card__price">От {{ rest.bill }} ₽</p>
           <svg
             width="6"
             height="6"
@@ -33,23 +37,15 @@
           >
             <circle cx="2.68982" cy="3" r="2.5" fill="#8C8C8C" />
           </svg>
-          <p class="card__price">{{ props.cousine }}</p>
+          <p class="card__price">{{ rest.cousine }}</p>
         </div>
       </div>
     </div>
   </router-link>
 </template>
 <script setup>
-const props = defineProps({
-  card: {
-    id: Number,
-    bill: Number,
-    title: String,
-    rating: Number,
-    img: String,
-    eta: Number,
-    cousine: String
-  }
+defineProps({
+  rest: Object
 })
 </script>
 <style lang="scss">

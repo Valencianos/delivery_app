@@ -4,15 +4,16 @@
       <div class="header__menu">
         <LogoUI></LogoUI>
         <div class="link__box">
-          <buttonUI
-            button="filled"
-            title="Войти"
-            img="login.svg"
-          ></buttonUI>
-          <buttonUI
-            button="outline"
-            title="Корзина"
-            img="shopping_cart.svg"
+          <buttonUI 
+            button="filled" 
+            title="Войти" 
+            pic="login.svg">
+          </buttonUI>
+          <buttonUI 
+            button="outline" 
+            title="Корзина" 
+            pic="shopping_cart.svg"
+            @click="openModal"
           ></buttonUI>
         </div>
       </div>
@@ -24,20 +25,14 @@
 import ButtonUI from '@/ui/ButtonUI.vue'
 import LogoUI from '@/ui/LogoUI.vue'
 
+const emit = defineEmits(['toggleModal'])
+const openModal = () => emit('toggleModal')
 </script>
 
 <style lang="scss">
-.container {
-  max-width: 1230px;
-  margin: 0 auto;
-  padding-left: 15px;
-  padding-right: 15px;
-  height: 100%;
-}
-
 .filled {
-  background-color:  #1890ff;
-  border: 1px solid  #1890ff;
+  background-color: #1890ff;
+  border: 1px solid #1890ff;
   color: #fff;
 }
 
